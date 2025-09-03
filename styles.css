@@ -1,0 +1,74 @@
+:root {
+  --bg: #0f1220;
+  --panel: #161a2b;
+  --panel-2: #1d2240;
+  --text: #e7ebff;
+  --muted: #95a1ff88;
+  --accent: #7aa2ff;
+  --good: #35c759;
+  --warn: #ffb020;
+  --bad:  #ff4d4d;
+  --barbg:#283059;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+  --radius: 18px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background: radial-gradient(1200px 1200px at 10% 0%, #1a1f3c 0,#0e1120 45%, #0b0d18 100%);
+  color:var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+}
+header{
+  padding: 16px 20px; display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;
+}
+header h1{ font-size: clamp(18px, 3vw, 24px); margin:0; letter-spacing:.3px }
+header .meta{opacity:.8; font-size:14px}
+
+.wrap{ max-width:1100px; margin:0 auto; padding:12px; display:grid; grid-template-columns: 340px 1fr; gap:16px }
+@media (max-width: 900px){ .wrap{ grid-template-columns: 1fr; } }
+
+.card{ background:linear-gradient(180deg, var(--panel) 0, var(--panel-2) 100%); border:1px solid #2a3367; border-radius:var(--radius); box-shadow: var(--shadow); overflow:hidden }
+.card h2{ font-size:16px; letter-spacing:.2px; margin:0; padding:10px 12px; background: #1b2040; border-bottom:1px solid #2a3367; opacity:.95 }
+.card .inner{ padding:12px }
+
+/* Pet area */
+.petbox{ display:grid; grid-template-rows: minmax(180px, 28vh) auto; gap:12px }
+.stage{ font-size:14px; opacity:.85 }
+.sprite{
+  background: radial-gradient(180px 160px at 50% 35%, #2a356e 0, #1a2047 60%, #121737 100%);
+  border-radius: 20px; border: 1px solid #2a3367; display:flex; align-items:center; justify-content:center;
+  text-align:center; position:relative; overflow:hidden
+}
+.sprite .emoji{ font-size: 88px; filter: drop-shadow(0 6px 16px rgba(0,0,0,.5)); }
+.species{ font-size:18px; font-weight:700; margin-top:6px }
+
+/* Gauges */
+.gauges{ display:grid; gap:10px; grid-template-columns: repeat(2, 1fr) }
+@media (max-width: 520px){ .gauges{ grid-template-columns: 1fr } }
+.gauge{ background: var(--barbg); border-radius:12px; padding:10px; border:1px solid #36407a }
+.gauge .row{ display:flex; align-items:center; justify-content:space-between; font-size:14px; margin-bottom:8px }
+.bar{ height: 12px; width: 100%; background:#161b36; border-radius: 10px; border:1px solid #2c356e; overflow:hidden }
+.bar > i{ display:block; height:100%; width:0%; background: linear-gradient(90deg, #6ea8ff, #8bc3ff); transition: width .4s ease }
+.bar.bad > i{ background: linear-gradient(90deg, #ff6666, #ff9b73) }
+.bar.warn > i{ background: linear-gradient(90deg, #ffb020, #ffd36d) }
+.num{ font-variant-numeric: tabular-nums; font-size:13px; opacity:.8 }
+
+/* Controls */
+.controls{ display:grid; grid-template-columns: repeat(4, 1fr); gap:10px }
+@media (max-width: 520px){ .controls{ grid-template-columns: repeat(2, 1fr); } }
+button{
+  cursor:pointer; border:none; outline:none; padding:10px 8px; border-radius:12px; background:#24305f; color:var(--text);
+  border:1px solid #32407a; font-size:13px; transition: transform .05s ease, background .2s ease, border .2s ease; font-weight:600
+}
+button:hover{ background:#2a3a77 }
+button:active{ transform: translateY(1px) }
+.danger{ background:#3a2440; border-color:#6b2a5b }
+
+.log{ max-height: 180px; overflow:auto; font-size:13px; line-height:1.5 }
+.log p{ margin:0; padding:8px 0; border-bottom:1px dashed #2a3367; opacity:.92 }
+
+.hint{ font-size:12px; opacity:.7; margin-top:8px }
+
+.flex{ display:flex; gap:10px; align-items:center; justify-content:space-between }
+.two-col{ display:grid; gap:12px; grid-template-columns: 1fr 1fr }
+
+.tag{ display:inline-block; padding:4px 8px; border:1px solid #2c356e; background:#1b2040; border-radius:999px; font-size:12px; opacity:.9 }
